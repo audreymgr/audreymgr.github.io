@@ -52,7 +52,7 @@ h1, h2, h3, h4, h5, h6, strong {
     margin-bottom: 0.5rem;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 50em) {
     .intro {
         position: absolute;
         top: 3%;
@@ -117,7 +117,7 @@ h1, h2, h3, h4, h5, h6, strong {
     line-height: 1rem;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 50em) {
     .controls {
         position: absolute;
         right: 3%;
@@ -143,9 +143,9 @@ h1, h2, h3, h4, h5, h6, strong {
     position: absolute;
     top: 0;
     left: 50%;
-    width: 47vh;
-    margin-left: -23.5vh;
-    height: 52.5vh;
+    width: 67vw;
+    margin-left: -33.5vw;
+    height: 75vw;
     margin-top: 5vh;
     z-index: 10;
 }
@@ -154,7 +154,7 @@ h1, h2, h3, h4, h5, h6, strong {
     display: none;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 50em) {
     #hexagon-image {
         position: absolute;
         top: 50%;
@@ -268,7 +268,7 @@ h1, h2, h3, h4, h5, h6, strong {
     font-size: 0.9rem;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 50em) {
     #projects-list {
         display: block;
         position: absolute;
@@ -332,7 +332,7 @@ h1, h2, h3, h4, h5, h6, strong {
     background-color: #fff;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 50em) {
     #detail {
         width: 50rem;
         margin: 0 auto;
