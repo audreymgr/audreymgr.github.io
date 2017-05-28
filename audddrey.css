@@ -25,18 +25,11 @@ h1, h2, h3, h4, h5, h6, strong {
     font-weight: 300;
 }
 
-/* NAVIGATOR */
+/* NAVIGATION & COMMON ELEMENTS */
 #navigator {
     display: flex;
     flex-direction: column;
     transition: margin-top 0.3s ease;
-}
-
-/* HOME */
-#home {
-    width: 100%;
-    height: 100%;
-    position: relative;
 }
 
 /* Intro text */
@@ -47,7 +40,62 @@ h1, h2, h3, h4, h5, h6, strong {
     width: 25%;
 }
 .intro p {
-    margin-bottom: 5px;
+    margin-bottom: 0.5rem;
+}
+
+/* Nav controls (arrows) */
+.controls {
+    position: absolute;
+    right: 3%;
+    top: 3%;
+    display: flex;
+    flex-direction: row;
+}
+.controls a {
+    display: block;
+    color: #000;
+    position: relative;
+    line-height: 1rem;
+}
+.controls .prev {
+    padding-top: 2.5rem;
+    padding-right: 1.5rem;
+}
+.controls .prev:after {
+    position: absolute;
+    right: -0.25rem;
+    bottom: 0;
+    content: "\2190";
+    line-height: 1rem;
+}
+.controls .home {
+    padding-bottom: 2.5rem;
+}
+.controls .home:after {
+    position: absolute;
+    left: 50%;
+    margin-left: -0.25rem;
+    bottom: 1rem;
+    content: "\2191";
+    line-height: 1rem;
+}
+.controls .next {
+    padding-top: 2.5rem;
+    padding-left: 1.5rem;
+}
+.controls .next:after {
+    position: absolute;
+    left: -0.25rem;
+    bottom: 0;
+    content: "\2192";
+    line-height: 1rem;
+}
+
+/* HOME */
+#home {
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
 
 /* Projects (hexagon & capsules) */
@@ -76,22 +124,22 @@ h1, h2, h3, h4, h5, h6, strong {
     list-style: none;
 }
 #directions li {
-    width: 200px;
-    line-height: 30px;
+    width: 12rem;
+    line-height: 2rem;
     text-align: center;
     position: absolute;
-    font-size: 12px;
+    font-size: 0.8rem;
 }
 #directions li#professional {
     top: 0;
     left: 50%;
-    margin-top: -30px;
-    margin-left: -100px;
+    margin-top: -2rem;
+    margin-left: -6rem;
 }
 #directions li#digital {
     top: 25%;
     left: 100%;
-    margin-top: -30px;
+    margin-top: -2rem;
     text-align: left;
 }
 #directions li#conceptual {
@@ -103,7 +151,7 @@ h1, h2, h3, h4, h5, h6, strong {
     top: 100%;
     left: 50%;
     margin-top: 0;
-    margin-left: -100px;
+    margin-left: -6rem;
 }
 #directions li#industrial {
     top: 75%;
@@ -113,7 +161,7 @@ h1, h2, h3, h4, h5, h6, strong {
 #directions li#factual {
     top: 25%;
     right: 100%;
-    margin-top: -30px;
+    margin-top: -2rem;
     text-align: right;
 }
 
@@ -130,20 +178,21 @@ h1, h2, h3, h4, h5, h6, strong {
 #projects-list > li {
     position: absolute;
     background-color: #FFFFFF;
+    font-size: 0.9rem;
 }
 #projects-list > li:before {
     position: absolute;
-    top: -20px;
-    left: -20px;
+    top: -1.25rem;
+    left: -1.25rem;
     content: "";
-    width: 16px;
-    height: 16px;
-    border-radius: 8px;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 0.5rem;
     background-color: #FF6225;
 }
 #projects-list > li a {
     display: block;
-    padding: 10px;
+    padding: 0.75rem;
     color: #000;
     text-decoration: none;
 }
@@ -151,22 +200,22 @@ h1, h2, h3, h4, h5, h6, strong {
     list-style: none;
 }
 #projects-list h2 {
-    font-size: 14px;
+    font-size: 0.9rem;
 }
 
 /* DETAIL */
 #detail {
-    width: 800px;
+    width: 50rem;
     margin: 0 auto;
-    padding-top: 150px;
+    padding-top: 9rem;
 }
 
 #detail h1 {
     font-family: FuturaBT-Light, sans-serif;
-    font-size: 48px;
+    font-size: 3rem;
     color: #6b6b6b;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 2rem;
 }
 #detail ul {
     list-style: none;
@@ -176,15 +225,15 @@ h1, h2, h3, h4, h5, h6, strong {
     justify-content: space-between;
 }
 #detail li {
-    margin-bottom: 50px;
+    margin-bottom: 3rem;
 }
 #detail li.large {
-    width: 800px;
+    width: 50rem;
 }
 #detail li.small {
-    width: 350px;
+    width: 20rem;
 }
 #detail p {
-    padding: 15px;
+    padding: 1rem;
     background-color: #fff;
 }
