@@ -91,7 +91,7 @@ h1, h2, h3, h4, h5, h6, strong {
     flex-direction: row;
     width: 100%;
     justify-content: center;
-    margin: 4rem 0;
+    margin: 2rem 0;
 }
 
 .controls a {
@@ -330,7 +330,7 @@ h1, h2, h3, h4, h5, h6, strong {
 
 #detail h1 {
     font-family: FuturaBT-Light, sans-serif;
-    font-size: 2rem;
+    font-size: 3rem;
     color: #6b6b6b;
     text-align: center;
     margin-bottom: 2rem;
@@ -351,8 +351,11 @@ h1, h2, h3, h4, h5, h6, strong {
 }
 
 #detail li p {
-    padding: 1rem;
+    padding: 1rem 1rem 0 1rem;
     background-color: #fff;
+}
+#detail li p:last-child {
+    padding-bottom: 1rem;
 }
 
 @media (min-width: 40em) {
@@ -360,10 +363,6 @@ h1, h2, h3, h4, h5, h6, strong {
         width: 50rem;
         margin: 0 auto;
         padding: 9rem 0 0 0;
-    }
-
-    #detail h1 {
-        font-size: 3rem;
     }
 
     #detail ul {
@@ -389,10 +388,14 @@ h1, h2, h3, h4, h5, h6, strong {
     }
 
     #detail li.large p {
-        padding: 2rem 4rem;
+        padding: 1.5rem 4rem 0 4rem;
     }
 
     #detail li.small p {
-        padding: 2rem;
+        padding: 1.5rem 2rem 0 2rem;
+    }
+
+    #detail li p:last-child {
+        padding-bottom: 1.5rem;
     }
 }
