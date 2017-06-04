@@ -5,3 +5,6 @@ _site
 
 # Jetbrains
 .idea
+
+# Mac OS
+.DS_Store
