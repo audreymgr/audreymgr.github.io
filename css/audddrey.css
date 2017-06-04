@@ -315,7 +315,7 @@ h1, h2, h3, h4, h5, h6, strong {
 
     #projects-list > li:before {
         position: absolute;
-        top: -1rem;
+        top: 0rem;
         left: -1rem;
         content: "";
         width: 0.8rem;
