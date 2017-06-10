@@ -1,94 +1,34 @@
 ---
 layout: default
 title: Home
-hide_header: true
 ---
 
-<div id="home">
-    <div id="projects">
-        <img src="/svg/hexagon.svg" alt="" id="hexagon-image"/>
-        <ul id="directions">
-            <li id="professional">Professional</li>
-            <li id="digital">Digital</li>
-            <li id="conceptual">Conceptual</li>
-            <li id="personal">Personal</li>
-            <li id="industrial">Industrial</li>
-            <li id="factual">Functional</li>
-        </ul>
-        <ul id="projects-list">
-            <li style="left: 50%; top: 2%;">
-                <a href="/work/route1.html">
-                    <h2>Route1</h2>
-                    <ul>
-                        <li>App</li>
-                        <li> Webtool (Hub)</li>
-                        <li> Branding & webdesign</li>
-                        <li> Digital marketing</li>
-                    </ul>
-                </a>
-            </li>
-            <li style="left: 5%; top: 26%;">
-                <a href="/work/proofreadinginternational.html">
-                    <h2>Proofreading International</h2>
-                    <ul>
-                        <li>Webdesign</li>
-                    </ul>
-                </a>
-            </li>
-            <li style="left: 85%; top: 30%;">
-                <a href="/work/jack.html">
-                    <h2>Jack</h2>
-                    <ul>
-                        <li>UX/UI Research</li>
-                    </ul>
-                </a>
-            </li>
-            <li style="left: 44%; top: 40%;">
-                <a href="/work/bompasandparr.html">
-                    <h2>Bompas & Parr</h2>
-                    <ul>
-                        <li>Chladni Bowl</li>
-                        <li>Alcoholic Architecture</li>
-                    </ul>
-                </a>
-            </li>
-            <li style="left: 59.5%; top: 58%;">
-                <a href="/work/sebastianerrazuriz.html">
-                    <h2>Sebastian Errazuriz</h2>
-                    <ul>
-                        <li>Tough Love</li>
-                        <li>12 shoes x 12 lovers</li>
-                    </ul>
-                </a>
-            </li>
-            <li style="left: 4%; top: 56%;">
-                <a href="/work/livlab.html">
-                    <h2>Livlab</h2>
-                    <ul>
-                        <li>Dodow</li>
-                    </ul>
-                </a>
-            </li>
-            <li style="left: 16%; top: 75%;">
-                <a href="/work/averagecards.html">
-                    <h2>Average Cards</h2>
-                    <ul>
-                        <li>Concept</li>
-                        <li>Print Design</li>
-                    </ul>
-                </a>
-            </li>
-            <li style="left: 55%; top: 79%;">
-                <a href="/work/miscellaneous.html">
-                    <h2>Miscellaneous</h2>
-                    <ul>
-                        <li>WIP</li>
-                        <li>RIP</li>
-                        <li>Vvvoiddd</li>
-                        <li>School projects</li>
-                    </ul>
-                </a>
-            </li>
-        </ul>
+<div id="navigator">
+    <div id="home">
+        <div id="projects">
+            <img src="/svg/hexagon.svg" alt="" id="hexagon-image"/>
+            <ul id="directions">
+                <li id="professional">Professional</li>
+                <li id="digital">Digital</li>
+                <li id="conceptual">Conceptual</li>
+                <li id="personal">Personal</li>
+                <li id="industrial">Industrial</li>
+                <li id="factual">Functional</li>
+            </ul>
+            <ul id="projects-list">
+                {% for post in site.posts %}
+                    <li style="left: {{ post.position[0] }}%; top: {{ post.position[1] }}%;">
+                        <a href="{{ post.url }}">
+                            <h2>{{ post.title }}</h2>
+                            <ul>
+                                {% for keyword in post.keywords %}
+                                    <li>{{ keyword }}</li>
+                                {% endfor %}
+                            </ul>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
 </div>

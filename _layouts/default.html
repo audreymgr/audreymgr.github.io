@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+
 <div class="intro">
     <p>I am a multi-disciplinary designer, currently focusing on UX/UI in London.</p>
     <p>
@@ -12,16 +13,9 @@
         <a href="mailto:mgr.adr@gmail.com"><strong>contact me</strong></a>
     </p>
 </div>
-{% if page.hide_header != true %}
-    <nav class="controls">
-        <a href="/work/sample.html" class="prev" rel="prev">Prev</a>
-        <a href="/index.html" class="home">Home</a>
-        <a href="/work/sample.html" class="next" rel="next">Next</a>
-    </nav>
-{% endif %}
-<did id="navigator">
-    {{ content }}
-</did>
+
+{{ content }}
+
 <!--<script language="JavaScript" src="audddrey.js"></script>-->
 </body>
 </html>
