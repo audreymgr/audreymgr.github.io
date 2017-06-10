@@ -2,12 +2,13 @@
 layout: default
 ---
 
-{% if page.prev.url %}
-    {% assign prev = page.prev.url %}
+{% if page.previous.url %}
+    {% assign prev = page.previous.url %}
 {% else %}
     {% assign last_post = site.posts|first %}
     {% assign prev = last_post.url %}
 {% endif %}
+
 {% if page.next.url %}
     {% assign next = page.next.url %}
 {% else %}
