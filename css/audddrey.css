@@ -437,8 +437,8 @@ body.transition #controls {
 #detail li {
   margin: 0;
   background-color: #FFFFFF;
-  border-radius: 0.5rem;
   overflow: hidden;
+  padding-bottom: 7.5vw;
 }
 
 #detail li.divider {
@@ -500,10 +500,13 @@ body.transition #controls {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: flex-start;
   }
 
   #detail li {
-    margin-bottom: 3rem;
+    padding: 0;
+    margin-bottom: 7.5vw;
+    border-radius: 0.5rem;
   }
 
   #detail li.large {
