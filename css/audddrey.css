@@ -396,12 +396,13 @@ body.transition #controls {
 
   #projects-list > li:before {
     position: absolute;
-    top: 0;
-    left: -1rem;
+    display: block;
+    top: -10px;
+    left: -10px;
     content: "";
-    width: 0.8rem;
-    height: 0.8rem;
-    border-radius: 0.4rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
     background-color: #24FFA6;
   }
 }
