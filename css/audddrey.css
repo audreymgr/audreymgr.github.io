@@ -26,12 +26,14 @@ body {
   width: 100%;
   min-height: 100%;
 }
+
 #gradients {
   position: absolute;
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
+
 #gradient1, #gradient2 {
   position: absolute;
   width: 120vw;
@@ -43,13 +45,13 @@ body {
 #gradient1 {
   top: -60vw;
   left: -60vw;
-  background-image: radial-gradient(rgba(36, 255, 166, 0.8), rgba(3,3,24,0) 65%, rgba(3,3,24,0));
+  background-image: radial-gradient(rgba(36, 255, 166, 0.8), rgba(3, 3, 24, 0) 65%, rgba(3, 3, 24, 0));
 }
 
 #gradient2 {
   right: -60vw;
   bottom: -60vw;
-  background-image: radial-gradient(rgba(145,72,255,0.8), rgba(0,0,0,0) 65%, rgba(3,3,24,0));
+  background-image: radial-gradient(rgba(145, 72, 255, 0.8), rgba(0, 0, 0, 0) 65%, rgba(3, 3, 24, 0));
 }
 
 a {
@@ -93,7 +95,7 @@ body.transition img:not(#hexagon-image), body.transition iframe {
 
 /* Intro text */
 .intro {
-  margin: 1rem;
+  padding: 1rem;
   z-index: 10000;
 }
 
@@ -332,25 +334,38 @@ body.transition #controls {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: space-around;
   align-items: center;
   padding-top: 4rem;
 }
 
 #projects-list > li {
   font-size: 0.9rem;
-  width: 46vw;
-  margin: 1vw 2vw;
+  width: 44vw;
+  margin-bottom: 1.5rem;
   display: flex;
   flex-direction: row;
+  transition: all .2s ease-in-out;
 }
 
-#projects-list > li:nth-child(2n+1) {
+#projects-list > li:hover {
+  transform: scale(1.05);
+}
+
+#projects-list > li:nth-child(odd) {
   justify-content: flex-end;
 }
 
-#projects-list > li:nth-child(2n) {
+#projects-list > li:nth-child(odd) a {
+  text-align: right;
+}
+
+#projects-list > li:nth-child(even) {
   justify-content: flex-start;
+}
+
+#projects-list > li:nth-child(even) a {
+  text-align: left;
 }
 
 #projects-list > li a {
@@ -359,19 +374,10 @@ body.transition #controls {
   display: block;
   padding: 0.75rem;
   color: #030318;
-  transition: all .2s ease-in-out;
-}
-
-#projects-list > li a:hover {
-  transform: scale(1.05);
 }
 
 #projects-list > li ul {
   list-style: none;
-}
-
-#projects-list > li ul > li {
-  white-space: nowrap;
 }
 
 #projects-list > li h2 {
@@ -394,16 +400,24 @@ body.transition #controls {
     margin: 0;
   }
 
+  #projects-list > li:nth-child(odd) a {
+    text-align: left;
+  }
+
   #projects-list > li:before {
     position: absolute;
     display: block;
-    top: -10px;
-    left: -10px;
+    top: 8px;
+    left: -16px;
     content: "";
-    width: 10px;
-    height: 10px;
-    border-radius: 5px;
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
     background-color: #24FFA6;
+  }
+
+  #projects-list > li ul > li {
+    white-space: nowrap;
   }
 }
 
