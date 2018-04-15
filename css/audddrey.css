@@ -27,6 +27,26 @@ body {
   height: 100%;
 }
 
+#circle1, #circle2 {
+  position: absolute;
+  width: 120vw;
+  height: 120vw;
+  border-radius: 60vw;
+  opacity: 0.3;
+}
+
+#circle1 {
+  top: -60vw;
+  left: -60vw;
+  background-image: radial-gradient(rgba(36, 255, 166, 0.8), rgba(3,3,24,0) 80%, rgba(3,3,24,0));
+}
+
+#circle2 {
+  right: -60vw;
+  bottom: -60vw;
+  background-image: radial-gradient(rgba(145,72,255,0.8), rgba(0,0,0,0) 80%, rgba(3,3,24,0));
+}
+
 a {
   color: #9148FF;
   text-decoration: none;
@@ -195,6 +215,7 @@ body.transition #controls {
   height: 75vw;
   margin-top: 5vh;
   z-index: 10;
+  opacity: 0.5;
 }
 
 #directions {
@@ -382,6 +403,7 @@ body.transition #controls {
     width: 67vh;
   }
 }
+
 @media (min-width: 768px) and (orientation: portrait) {
   #projects-list {
     margin-top: -37.5vw;
