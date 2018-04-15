@@ -185,7 +185,7 @@ body.transition #controls {
 
 #hexagon-image {
   position: absolute;
-  top: 0;
+  top: 11vh;
   left: 50%;
   width: 67vw;
   margin-left: -33.5vw;
@@ -203,10 +203,6 @@ body.transition #controls {
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: -37.5vh;
-    margin-left: -33.5vh;
-    height: 75vh;
-    width: 67vh;
   }
 
   #directions {
@@ -214,10 +210,6 @@ body.transition #controls {
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: -37.5vh;
-    margin-left: -33.5vh;
-    height: 75vh;
-    width: 67vh;
     list-style: none;
   }
 
@@ -267,6 +259,38 @@ body.transition #controls {
     right: 100%;
     margin-top: -2rem;
     text-align: right;
+  }
+}
+
+@media (min-width: 768px) and (orientation: landscape) {
+  #hexagon-image {
+    margin-top: -37.5vh;
+    margin-left: -33.5vh;
+    height: 75vh;
+    width: 67vh;
+  }
+
+  #directions {
+    margin-top: -37.5vh;
+    margin-left: -33.5vh;
+    height: 75vh;
+    width: 67vh;
+  }
+}
+
+@media (min-width: 768px) and (orientation: portrait) {
+  #hexagon-image {
+    margin-top: -37.5vw;
+    margin-left: -33.5vw;
+    height: 75vw;
+    width: 67vw;
+  }
+
+  #directions {
+    margin-top: -37.5vw;
+    margin-left: -33.5vw;
+    height: 75vw;
+    width: 67vw;
   }
 }
 
@@ -324,10 +348,6 @@ body.transition #controls {
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: -37.5vh;
-    margin-left: -33.5vh;
-    height: 75vh;
-    width: 67vh;
     padding-top: 0;
   }
 
@@ -347,6 +367,23 @@ body.transition #controls {
     height: 0.8rem;
     border-radius: 0.4rem;
     background-color: #FF6225;
+  }
+}
+
+@media (min-width: 768px) and (orientation: landscape) {
+  #projects-list {
+    margin-top: -37.5vh;
+    margin-left: -33.5vh;
+    height: 75vh;
+    width: 67vh;
+  }
+}
+@media (min-width: 768px) and (orientation: portrait) {
+  #projects-list {
+    margin-top: -37.5vw;
+    margin-left: -33.5vw;
+    height: 75vw;
+    width: 67vw;
   }
 }
 
