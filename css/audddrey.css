@@ -100,8 +100,8 @@ body.transition img:not(#hexagon-image), body.transition iframe {
 @media (min-width: 768px) {
   .intro {
     position: absolute;
-    top: 3%;
-    left: 3%;
+    top: 3vw;
+    left: 3vw;
     width: 30%;
     margin: 0;
   }
@@ -244,6 +244,7 @@ body.transition #controls {
     text-align: center;
     position: absolute;
     font-size: 0.9rem;
+    opacity: 0.6;
   }
 
   #directions li#professional {
