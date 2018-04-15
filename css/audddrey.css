@@ -24,10 +24,15 @@ body {
   font-family: FuturaBT-Light, sans-serif;
   font-size: 18px;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
 }
-
-#circle1, #circle2 {
+#gradients {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+#gradient1, #gradient2 {
   position: absolute;
   width: 120vw;
   height: 120vw;
@@ -35,13 +40,13 @@ body {
   opacity: 0.3;
 }
 
-#circle1 {
+#gradient1 {
   top: -60vw;
   left: -60vw;
   background-image: radial-gradient(rgba(36, 255, 166, 0.8), rgba(3,3,24,0) 65%, rgba(3,3,24,0));
 }
 
-#circle2 {
+#gradient2 {
   right: -60vw;
   bottom: -60vw;
   background-image: radial-gradient(rgba(145,72,255,0.8), rgba(0,0,0,0) 65%, rgba(3,3,24,0));
