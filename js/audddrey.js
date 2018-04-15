@@ -1,29 +1,42 @@
 function createTransition(property, inverse) {
   return Barba.BaseTransition.extend({
     start: function () {
+      document.getElementsByTagName('body')[0].classList.add('transition');
       this.newContainerLoading.then(this.move.bind(this));
     },
 
     move: function () {
-      var $current = $(this.oldContainer);
-      var $next = $(this.newContainer);
+      var current = this.oldContainer;
+      var next = this.newContainer;
 
-      var hideParams = {};
+      // prep next
+      next.style.visibility = 'visible';
+      next.style[property] = inverse ? '-100%' : '100%';
+
+      // hide current
+      var hideParams = {
+        targets: current,
+        easing: 'easeInOutQuad',
+        duration: 500
+      };
       hideParams[property] = inverse ? '100%' : '-100%';
-      var showParams = { visibility: 'visible' };
-      showParams[property] = inverse ? '-100%' : '100%';
-      var animateParams = {};
-      animateParams[property] = '0';
 
-      $next.css(showParams);
+      // show next
+      var showParams = {
+        targets: next,
+        easing: 'easeInOutQuad',
+        duration: 500
+      };
+      showParams[property] = 0;
 
       return Promise
         .all([
-          $current.animate(hideParams, 400).promise(),
-          $next.animate(animateParams, 400).promise()
+          anime(hideParams).finished,
+          anime(showParams).finished
         ])
-        .then((function() {
-          $current.hide();
+        .then((function () {
+          current.style.visibility = 'hidden';
+          document.getElementsByTagName('body')[0].classList.remove('transition');
           this.done();
         }).bind(this));
     }

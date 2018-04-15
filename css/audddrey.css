@@ -36,20 +36,38 @@ h1, h2, h3, h4, h5, h6, strong {
   font-weight: 300;
 }
 
+/* Hide images when transitioning */
+img:not(#hexagon-image), iframe {
+  opacity: 1;
+  transition: opacity 200ms linear;
+}
+
+body.transition img:not(#hexagon-image), body.transition iframe {
+  visibility: hidden !important;
+  opacity: 0;
+}
+
 /* NAVIGATION & COMMON ELEMENTS */
 .navigator {
   position: absolute;
   top: 0;
   left: 0;
+  padding-top: 10vh;
   width: 100%;
   min-height: 100%;
   display: flex;
   flex-direction: column;
 }
 
+@media (min-width: 768px) {
+  .navigator {
+    padding-top: 0;
+  }
+}
+
 /* Intro text */
 .intro {
-  margin: 1rem 3rem;
+  margin: 1rem;
   z-index: 10000;
 }
 
@@ -58,18 +76,12 @@ h1, h2, h3, h4, h5, h6, strong {
   text-align: center;
 }
 
-@media (min-width: 30em) {
-  .intro {
-    margin: 1rem 8rem;
-  }
-}
-
-@media (min-width: 40em) {
+@media (min-width: 768px) {
   .intro {
     position: absolute;
     top: 3%;
     left: 3%;
-    width: 35%;
+    width: 30%;
     margin: 0;
   }
 
@@ -78,35 +90,46 @@ h1, h2, h3, h4, h5, h6, strong {
   }
 }
 
-@media (min-width: 50em) {
-  .intro {
-    width: 30%;
-  }
-}
-
-@media (min-width: 60em) {
-  .intro {
-    width: 25%;
-  }
-}
-
 /* Nav controls (arrows) */
 #controls {
-  position: fixed;
-  right: 3%;
-  top: 3%;
+  position: absolute;
+  top: 20vh;
+  right: 0;
   display: flex;
   flex-direction: row;
   width: 100%;
   justify-content: center;
-  margin: 2rem 0;
+  opacity: 1;
+  transition: opacity 200ms linear;
+}
+
+body.transition #controls {
+  opacity: 0;
+}
+
+@media (min-width: 768px) {
+  #controls {
+    right: 3vw;
+    top: 3vw;
+  }
+}
+
+@media (min-width: 1280px) {
+  #controls {
+    position: fixed;
+  }
+
+  body.transition #controls {
+    opacity: 1;
+  }
 }
 
 #controls a {
   display: block;
-  color: #000;
+  color: #000000;
   position: relative;
-  line-height: 1rem;
+  line-height: 0.8rem;
+  text-transform: uppercase;
 }
 
 #controls .prev {
@@ -148,7 +171,7 @@ h1, h2, h3, h4, h5, h6, strong {
   line-height: 1rem;
 }
 
-@media (min-width: 40em) {
+@media (min-width: 768px) {
   #controls {
     width: auto;
     margin: 0;
@@ -175,7 +198,7 @@ h1, h2, h3, h4, h5, h6, strong {
   display: none;
 }
 
-@media (min-width: 40em) {
+@media (min-width: 768px) {
   #hexagon-image {
     position: absolute;
     top: 50%;
@@ -295,7 +318,7 @@ h1, h2, h3, h4, h5, h6, strong {
   font-size: 0.9rem;
 }
 
-@media (min-width: 40em) {
+@media (min-width: 768px) {
   #projects-list {
     display: block;
     position: absolute;
@@ -329,12 +352,13 @@ h1, h2, h3, h4, h5, h6, strong {
 
 /* DETAIL PAGE */
 #detail {
-  padding: 1rem;
+  padding-top: 25vh;
 }
 
 #detail h1 {
   font-family: FuturaBT-Light, sans-serif;
   font-size: 3rem;
+  padding: 0 2rem;
   color: #6b6b6b;
   text-align: center;
   margin-bottom: 2rem;
@@ -347,7 +371,7 @@ h1, h2, h3, h4, h5, h6, strong {
 }
 
 #detail li {
-  margin-bottom: 1rem;
+  margin: 0;
 }
 
 #detail li img {
@@ -355,7 +379,7 @@ h1, h2, h3, h4, h5, h6, strong {
 }
 
 #detail li p {
-  padding: 1rem 1rem 0 1rem;
+  padding: 2rem;
   background-color: #fff;
 }
 
@@ -363,11 +387,11 @@ h1, h2, h3, h4, h5, h6, strong {
   padding-bottom: 1rem;
 }
 
-@media (min-width: 40em) {
+@media (min-width: 768px) {
   #detail {
-    width: 50rem;
-    margin: 0 auto;
-    padding: 9rem 0 0 0;
+    width: 80vw;
+    margin: 0 10vw;
+    padding-top: 20vh;
   }
 
   #detail ul {
@@ -381,11 +405,11 @@ h1, h2, h3, h4, h5, h6, strong {
   }
 
   #detail li.large {
-    width: 50rem;
+    width: 80vw;
   }
 
   #detail li.small {
-    width: 22rem;
+    width: 35vw;
   }
 
   #detail li p {
@@ -393,14 +417,29 @@ h1, h2, h3, h4, h5, h6, strong {
   }
 
   #detail li.large p {
-    padding: 1.5rem 4rem 0 4rem;
+    padding: 2rem 4rem;
   }
 
   #detail li.small p {
-    padding: 1.5rem 2rem 0 2rem;
+    padding: 2rem;
   }
 
   #detail li p:last-child {
     padding-bottom: 1.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  #detail {
+    width: 65vw;
+    margin: 0 17.5vw;
+  }
+
+  #detail li.large {
+    width: 65vw;
+  }
+
+  #detail li.small {
+    width: 30vw;
   }
 }
