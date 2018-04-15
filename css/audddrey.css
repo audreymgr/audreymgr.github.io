@@ -22,7 +22,7 @@ body {
   background-color: #030318;
   color: #FFFFFF;
   font-family: FuturaBT-Light, sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   width: 100%;
   height: 100%;
 }
@@ -150,7 +150,6 @@ body.transition #controls {
   color: #FFFFFF;
   position: relative;
   line-height: 1.2rem;
-  font-size: 0.9rem;
 }
 
 #controls .prev {
@@ -243,7 +242,7 @@ body.transition #controls {
     line-height: 2rem;
     text-align: center;
     position: absolute;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 
   #directions li#professional {
@@ -351,7 +350,7 @@ body.transition #controls {
   background-color: #FFFFFF;
   border-radius: 0.5rem;
   display: block;
-  padding: 0.75rem 1.25rem;
+  padding: 0.75rem;
   color: #030318;
   transition: all .2s ease-in-out;
 }
@@ -362,6 +361,10 @@ body.transition #controls {
 
 #projects-list > li ul {
   list-style: none;
+}
+
+#projects-list > li ul > li {
+  white-space: nowrap;
 }
 
 #projects-list > li h2 {
@@ -435,10 +438,11 @@ body.transition #controls {
 }
 
 #detail li {
-  margin: 0;
   background-color: #FFFFFF;
   overflow: hidden;
-  padding-bottom: 7.5vw;
+  width: 90vw;
+  border-radius: 0.5rem;
+  margin: 0 5vw 7.5vw 5vw;
 }
 
 #detail li.divider {
@@ -485,10 +489,6 @@ body.transition #controls {
   color: #030318;
 }
 
-#detail li p:last-child {
-  padding-bottom: 1rem;
-}
-
 @media (min-width: 768px) {
   #detail {
     width: 80vw;
@@ -504,9 +504,7 @@ body.transition #controls {
   }
 
   #detail li {
-    padding: 0;
-    margin-bottom: 7.5vw;
-    border-radius: 0.5rem;
+    margin: 0 0 7.5vw 0;
   }
 
   #detail li.large {
