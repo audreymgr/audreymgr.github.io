@@ -146,12 +146,10 @@ body.transition #controls {
 }
 
 #controls a {
-  font-family: FuturaBT-Heavy, sans-serif;
-  font-weight: 300;
   display: block;
   color: #FFFFFF;
   position: relative;
-  line-height: 0.8rem;
+  line-height: 1.2rem;
   font-size: 0.9rem;
 }
 
@@ -166,6 +164,7 @@ body.transition #controls {
   bottom: 0;
   content: "\2190";
   line-height: 1rem;
+  color: #24FFA6;
 }
 
 #controls .home {
@@ -179,6 +178,7 @@ body.transition #controls {
   bottom: 1rem;
   content: "\2191";
   line-height: 1rem;
+  color: #24FFA6;
 }
 
 #controls .next {
@@ -192,6 +192,7 @@ body.transition #controls {
   bottom: 0;
   content: "\2192";
   line-height: 1rem;
+  color: #24FFA6;
 }
 
 @media (min-width: 768px) {
