@@ -32,7 +32,13 @@ function createTransition(property, inverse) {
       return Promise
         .all([
           anime(hideParams).finished,
-          anime(showParams).finished
+          anime(showParams).finished,
+          new Promise(function(resolve) {
+            setTimeout(function() {
+              window.scrollTo(0,0);
+              resolve();
+          }, 250);
+          })
         ])
         .then((function () {
           current.style.visibility = 'hidden';
