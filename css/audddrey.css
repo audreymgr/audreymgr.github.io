@@ -460,12 +460,13 @@ body.transition #controls {
   background-color: #9148FF;
   border: none;
   position: relative;
+  overflow: visible;
 }
 
 #detail li.divider hr:before {
   position: absolute;
   top: -0.4rem;
-  left: -8rem;
+  left: -6rem;
   display: block;
   width: 1.6rem;
   height: 1.6rem;
