@@ -158,6 +158,12 @@ body.transition #controls {
   position: relative;
   line-height: 1.2rem;
   font-size: 0.9rem;
+  opacity: 0.8;
+  transition: opacity 200ms ease-in-out;
+}
+
+#controls a:hover {
+  opacity: 1;
 }
 
 #controls .prev {
@@ -345,11 +351,13 @@ body.transition #controls {
   margin-bottom: 1.5rem;
   display: flex;
   flex-direction: row;
-  transition: all .2s ease-in-out;
+  transition: all 200ms ease-in-out;
+  opacity: 0.8;
 }
 
 #projects-list > li:hover {
   transform: scale(1.05);
+  opacity: 1;
 }
 
 #projects-list > li:nth-child(odd) {
