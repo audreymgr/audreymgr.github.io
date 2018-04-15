@@ -36,7 +36,9 @@ function createTransition(property, inverse) {
         ])
         .then((function () {
           current.style.visibility = 'hidden';
-          document.getElementsByTagName('body')[0].classList.remove('transition');
+          setTimeout(function () {
+            document.getElementsByTagName('body')[0].classList.remove('transition');
+          }, 200);
           this.done();
         }).bind(this));
     }
