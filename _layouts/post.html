@@ -16,16 +16,14 @@ layout: default
     {% assign next = first_post.url %}
 {% endif %}
 
-<nav class="controls">
+<nav id="controls">
     <a href="{{ prev }}" class="prev" rel="prev">Prev</a>
     <a href="/index.html" class="home">Home</a>
     <a href="{{ next }}" class="next" rel="next">Next</a>
 </nav>
 
-<did id="navigator">
-    <div id="project">
-        <article id="detail">
-            {{ content }}
-        </article>
-    </div>
-</did>
+<div id="project">
+    <article id="detail">
+        {{ content }}
+    </article>
+</div>

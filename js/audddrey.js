@@ -1,67 +1,69 @@
-var FadeTransition = Barba.BaseTransition.extend({
-  start: function () {
-    /**
-     * This function is automatically called as soon the Transition starts
-     * this.newContainerLoading is a Promise for the loading of the new container
-     * (Barba.js also comes with an handy Promise polyfill!)
-     */
+function createTransition(property, inverse) {
+  return Barba.BaseTransition.extend({
+    start: function () {
+      this.newContainerLoading.then(this.move.bind(this));
+    },
 
-    // As soon the loading is finished and the old page is faded out, let's fade the new page
-    Promise
-      .all([this.newContainerLoading, this.fadeOut()])
-      .then(this.fadeIn.bind(this));
-  },
+    move: function () {
+      var $current = $(this.oldContainer);
+      var $next = $(this.newContainer);
 
-  fadeOut: function () {
-    /**
-     * this.oldContainer is the HTMLElement of the old Container
-     */
+      var hideParams = {};
+      hideParams[property] = inverse ? '100%' : '-100%';
+      var showParams = { visibility: 'visible' };
+      showParams[property] = inverse ? '-100%' : '100%';
+      var animateParams = {};
+      animateParams[property] = '0';
 
-    return $(this.oldContainer).animate({ opacity: 0 }).promise();
-  },
+      $next.css(showParams);
 
-  fadeIn: function () {
-    /**
-     * this.newContainer is the HTMLElement of the new Container
-     * At this stage newContainer is on the DOM (inside our #barba-container and with visibility: hidden)
-     * Please note, newContainer is available just after newContainerLoading is resolved!
-     */
+      return Promise
+        .all([
+          $current.animate(hideParams, 400).promise(),
+          $next.animate(animateParams, 400).promise()
+        ])
+        .then((function() {
+          $current.hide();
+          this.done();
+        }).bind(this));
+    }
+  });
+}
 
-    var _this = this;
-    var $el = $(this.newContainer);
-
-    $(this.oldContainer).hide();
-
-    $el.css({
-      visibility: 'visible',
-      opacity: 0
-    });
-
-    $el.animate({ opacity: 1 }, 400, function () {
-      /**
-       * Do not forget to call .done() as soon your transition is finished!
-       * .done() will automatically remove from the DOM the old Container
-       */
-
-      _this.done();
-    });
-  }
-});
-
-/**
- * Next step, you have to tell Barba to use the new Transition
- */
+var down = createTransition('top', false);
+var up = createTransition('top', true);
+var right = createTransition('left', false);
+var left = createTransition('left', true);
 
 Barba.Pjax.getTransition = function () {
-  /**
-   * Here you can use your own logic!
-   * For example you can use different Transition based on the current page or link...
-   */
+  var currentUrlParts = Barba.HistoryManager.currentStatus().url.replace(/https?:\/\//, '').split('/');
+  var prevUrlParts = Barba.HistoryManager.prevStatus().url.replace(/https?:\/\//, '').split('/');
 
-  return FadeTransition;
+  var currentIsHome = prevUrlParts.length === 2;
+  var nextIsHome = currentUrlParts.length === 2;
+
+  if (currentIsHome && !nextIsHome) {
+    return down;
+  } else if (!currentIsHome && nextIsHome) {
+    return up;
+  } else {
+    var currentDateParts = prevUrlParts.slice(1, -1);
+    var currentDate = new Date(currentDateParts[0], currentDateParts[1] - 1, currentDateParts[2]);
+    var nextDateParts = currentUrlParts.slice(1, -1);
+    var nextDate = new Date(nextDateParts[0], nextDateParts[1] - 1, nextDateParts[2]);
+
+    if (nextDate > currentDate) {
+      return right;
+    } else {
+      return left;
+    }
+  }
 };
 
-document.addEventListener("DOMContentLoaded", function () {
+Barba.Pjax.Dom.wrapperId = 'navigator-wrapper';
+Barba.Pjax.Dom.containerClass = 'navigator';
+
+document.addEventListener('DOMContentLoaded', function () {
   Barba.Prefetch.init();
   Barba.Pjax.start();
 });

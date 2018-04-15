@@ -3,34 +3,30 @@ layout: default
 title: Home
 ---
 
-<div id="navigator">
-    <div id="home">
-        <div id="projects">
-            <img src="/svg/hexagon.svg" alt="" id="hexagon-image"/>
-            <ul id="directions">
-                <li id="professional">Professional</li>
-                <li id="digital">Digital</li>
-                <li id="conceptual">Conceptual</li>
-                <li id="personal">Personal</li>
-                <li id="industrial">Industrial</li>
-                <li id="factual">Functional</li>
-            </ul>
-            <ul id="projects-list">
-                {% for post in site.posts %}
-                    {% if post.hidden != true %}
-                        <li style="left: {{ post.position[0] }}%; top: {{ post.position[1] }}%;">
-                            <a href="{{ post.url }}">
-                                <h2>{{ post.title }}</h2>
-                                <ul>
-                                    {% for keyword in post.keywords %}
-                                        <li>{{ keyword }}</li>
-                                    {% endfor %}
-                                </ul>
-                            </a>
-                        </li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-        </div>
-    </div>
+<div id="projects">
+    <img src="/svg/hexagon.svg" alt="" id="hexagon-image" />
+    <ul id="directions">
+        <li id="professional">Professional</li>
+        <li id="digital">Digital</li>
+        <li id="conceptual">Conceptual</li>
+        <li id="personal">Personal</li>
+        <li id="industrial">Industrial</li>
+        <li id="factual">Functional</li>
+    </ul>
+    <ul id="projects-list">
+        {% for post in site.posts %}
+            {% if post.hidden != true %}
+                <li style="left: {{ post.position[0] }}%; top: {{ post.position[1] }}%;">
+                    <a href="{{ post.url }}">
+                        <h2>{{ post.title }}</h2>
+                        <ul>
+                            {% for keyword in post.keywords %}
+                                <li>{{ keyword }}</li>
+                            {% endfor %}
+                        </ul>
+                    </a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
 </div>
